@@ -1,0 +1,201 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f098dd, #84c5eb);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+  position: relative; /* For balloon layering */
+}
+
+/* Curtain Effect */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  transition: all 1s ease;
+}
+
+.curtain-left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.curtain-right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.curtain.open-left {
+  transform: translateX(0);
+}
+
+.curtain.open-right {
+  transform: translateX(0);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  background: #edf4f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* To layer content above balloons */
+  z-index: 10; /* Ensures content is above balloons */
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #150303;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Video Container */
+.video-container {
+  margin: 20px 0;
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+button {
+  background: linear-gradient(135deg, #ddabd8, #84c5eb);
+  color: #150303;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #74c1ea, #f098dd);
+  transform: scale(1.05);
+}
+
+/* Balloon Animation */
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.balloon {
+  width: 50px;
+  height: 70px;
+  background: radial-gradient(circle, #ea92d3 60%, #98dbed);
+  border-radius: 50%;
+  position: absolute;
+  animation: float 5s ease-in-out infinite;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: #eda3d7;
+}
+
+.balloon-left {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.balloon-right {
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Rest of your styles */
+.message {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #444;
+}
+
+.photo-gallery {
+  margin: 60px 0;
+}
+
+.photo-gallery h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f0f4f8;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer h1 {
+  font-size: 1.8em;
+  color: #150303;
+  margin-bottom: 15px;
+}
+
+footer p {
+  font-size: 1.1em;
+  color: #444;
+  line-height: 1.6;
+}
